@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            border-radius: 29px;
+        }
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .main {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #fab9d4;
+            z-index: 0;
+        }
+        .left {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: #a0ecd9;
+            clip-path: polygon(0 0, 100% 0, 0 100%);
+            z-index: 1;
+        }
+        .right {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            background: #d1d86b;
+            clip-path: polygon(0 100%, 100% 100%, 0 50%);
+            z-index: 0;
+        }
+        
+        .houseplant {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 150px;
+            height: auto;
+            z-index: 2;
+        }
+        .plant {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            width: 150px;
+            height: auto;
+            z-index: 2;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 700px;
+            text-align: center;
+            z-index: 3;
+            position: relative;
+            
+            border-radius: 20px;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        input[type="text"], input[type="datetime-local"] {
+            padding: 10px;
+            width: calc(100% - 22px);
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #5cb85c;
+            color: white;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+        button:hover {
+            background-color: #4cae4c;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .completed td {
+            text-decoration: line-through;
+            background: #d4edda;
+        }
+        .delete {
+            background: #d9534f;
+            color: white;
+            border: none;
+            padding: 5px;
+            cursor: pointer;
+        }
+        .delete:hover {
+            background: #c9302c;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="left"></div>
+        <div class="right"></div>
+        <div class="top-left"></div>
+        <img class="houseplant" src="https://cdn3.iconfinder.com/data/icons/house-plants-6/66/Houseplants-15-128.png" alt="Houseplant">
+        <img class="plant" src="https://cdn3.iconfinder.com/data/icons/house-plants-6/66/Houseplants-15-128.png" alt="Houseplant">
+    </div>
+    <div class="container" id="app">
+        <h1>To-Do List Application</h1>
+        <input type="text" id="taskInput" placeholder="Add a new task">
+        <input type="datetime-local" id="taskStartTime">
+        <input type="datetime-local" id="taskDeadline">
+        <button id="addTaskButton">Add Task</button>
+        <button id="resetButton">Reset All</button>
+        <table id="taskTable">
+            <thead>
+                <tr>
+                    <th>Task</th>
+                    <th>Start</th>
+                    <th>Deadline</th>
+                    <th>Completed</th>
+                    <th>Completion Time</th>
+                    <th>Duration</th>
+                    <th>Extra Time</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Tasks will be added here -->
+            </tbody>
+        </table>
+        <script src="To-do-list.js"></script>
+    </div>
+</body>
+</html>
+
